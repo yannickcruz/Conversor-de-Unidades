@@ -1,0 +1,36 @@
+@font-face {
+    font-family: 'Anton';
+    src: url('../Source/fonts/Anton-Regular.ttf') format('truetype');
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Barlow';
+    src: url('../Source/fonts/BarlowCondensed-Regular.ttf') format('truetype');
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Bungee';
+    src: url('../Source/fonts/Bungee-Regular.ttf') format('truetype');
+    font-style: normal;
+}
+
+*{
+    margin: 0;
+    list-style: none;
+    padding: 0;
+    text-decoration: none;
+}
+
+body{
+    font-family: 'Barlow', Arial, Helvetica, sans-serif;
+    overflow-x: hidden;
+    box-sizing: border-box; 
+    background-color: var(--background);
+}
+
+:root{
+    --std_orange: #ffd966;
+    --std_blue: #2b00ff;
+    --white: #ffffff;
+    --background: #fff8f3;
+}
