@@ -8,9 +8,10 @@ header{
     align-items: center;
     justify-content: space-between;
     background-color: rgba(255, 248, 243, 0.75);
-    box-shadow: 0px 0px 2px 2px; 
+    box-shadow: 0px 0px 10px 2px; 
     z-index: 100;
     backdrop-filter: blur(5px);
+    transition: all 0.5s ease-in;
 }
 #subcontainer{
     display: flex;
@@ -24,13 +25,14 @@ header{
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     letter-spacing: 3px;
+    transition: all 0.5s ease-in;
 }
 #dark{
     width: 3rem;
     filter: brightness(0) saturate(100%) invert(70%) sepia(11%) saturate(3984%) hue-rotate(134deg) brightness(109%) contrast(102%);
     margin-right: 2rem;
     cursor: pointer;
-    transition: filter 0.5s ease;
+    transition: all 0.5s ease;
 }
 #dark:hover{
     filter: brightness(0) saturate(100%) invert(32%) sepia(35%) saturate(3258%) hue-rotate(156deg) brightness(96%) contrast(101%);
@@ -38,6 +40,7 @@ header{
 #logo{
     max-width: 5rem;
     margin-left: 1rem;
+    
 }
 
 /*Estilo do container principal*/
@@ -58,11 +61,13 @@ header{
     font-family: 'Anton', Arial, Helvetica, sans-serif;
     font-size: 2rem;
     color: #333232;
+    transition: all 0.5s ease-in;
 }
 .textbox p{
     color: #515151;
     font-size: 1.25rem;
     text-align: center;
+    transition: all 0.5s ease-in;
 }
 #unit{
     background: -webkit-linear-gradient(#0084ff, #00f7ff);
@@ -97,6 +102,7 @@ header{
     letter-spacing: 1px;
     color: #333232;
     font-size: 1.2rem;
+    transition: all 0.5s ease-in;
 }
 .linkText{
     color: transparent;
