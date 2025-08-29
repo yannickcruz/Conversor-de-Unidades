@@ -3,16 +3,20 @@ header{
     display: flex;
     position: fixed;
     width: 100vw;
-    gap: 2rem;
     max-width: 100vw;
     height: 5rem;
     align-items: center;
+    justify-content: space-between;
     background-color: rgba(255, 248, 243, 0.75);
     box-shadow: 0px 0px 2px 2px; 
     z-index: 100;
     backdrop-filter: blur(5px);
 }
-
+#subcontainer{
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
 #title{
     font-family: 'Anton', Arial, Helvetica, sans-serif;
     font-size: 2rem;
@@ -21,7 +25,16 @@ header{
     -webkit-text-fill-color: transparent;
     letter-spacing: 3px;
 }
-
+#dark{
+    width: 3rem;
+    filter: brightness(0) saturate(100%) invert(70%) sepia(11%) saturate(3984%) hue-rotate(134deg) brightness(109%) contrast(102%);
+    margin-right: 2rem;
+    cursor: pointer;
+    transition: filter 0.5s ease;
+}
+#dark:hover{
+    filter: brightness(0) saturate(100%) invert(32%) sepia(35%) saturate(3258%) hue-rotate(156deg) brightness(96%) contrast(101%);
+}
 #logo{
     max-width: 5rem;
     margin-left: 1rem;
