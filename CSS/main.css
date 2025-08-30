@@ -112,6 +112,22 @@ header{
     background-clip: text;
 }
 
+footer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 10rem;
+    position: relative;
+    top: 12rem;
+    background-color: #2fb6ff;
+    transition: all 0.5s ease-in;
+}
+
+#copy{
+    font-family: 'Bungee', Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+    color: #333232;
+}
 
 @media(max-width: 950px){
     .unitChoose{
