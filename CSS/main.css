@@ -86,7 +86,7 @@ header{
 .unit{
     display: flex;
     flex-direction: column;
-    background: linear-gradient(20deg, #d1d1d1, #aba9a4);
+    background-color: #aba9a4;
     padding: 1rem;
     border-radius: 10px;
     gap: 1rem;
@@ -94,7 +94,7 @@ header{
     
 }
 .unit:hover{
-    background: linear-gradient(20deg, #aba9a4,#d1d1d1);
+    background-color: #d1d1d1;
     transform: scale(1.05);
 }
 .unit h3{

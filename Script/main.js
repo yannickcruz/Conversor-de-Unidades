@@ -1,3 +1,6 @@
+let isDark;
+let clickIsDark;
+
 function changeDark(){
     const header = document.getElementById("navbar");
     const body = document.body;
@@ -6,18 +9,23 @@ function changeDark(){
     const unitContainers = document.querySelectorAll(".unit");
     const btn = document.getElementById("dark");
     const footer = document.getElementById("page-foot");
-    let isDark = false;
     
     const ucMouseOut = (event) => {
-        event.currentTarget.style.background = "linear-gradient(20deg, #d1d1d1, #aba9a4)";
+        event.currentTarget.style.backgroundColor = "#aba9a4";
     }
     const ucMouseOver = (event) => {
-        event.currentTarget.style.background = "linear-gradient(20deg, #aba9a4, #d1d1d1)";
+        event.currentTarget.style.backgroundColor = "#d1d1d1";
     }
-
-    btn.addEventListener('click', () => {
-        if(!isDark){
-            
+    const darkUCMouseOut = (event) => {
+        event.currentTarget.style.backgroundColor = "#060610ff";
+    }
+    const darkUCMouseOver = (event) => {
+        event.currentTarget.style.backgroundColor = "#06003fff";
+    }
+    modeChange(false);
+    function modeChange(click){
+        click ? clickIsDark = isDark : clickIsDark = !isDark;
+        if(!clickIsDark){
             body.style.backgroundColor = "#161616";
             header.style.backgroundColor = "rgba(22, 22, 22, 0.75)";
             header.style.boxShadow = "none";
@@ -33,7 +41,10 @@ function changeDark(){
             });
             
             unitContainers.forEach((index) => {
-                index.style.background = "linear-gradient(20deg, #060610ff, #0f0e18ff)";
+                index.style.backgroundColor = "#060610ff";
+
+                index.addEventListener("mouseover", darkUCMouseOver);
+                index.addEventListener("mouseout", darkUCMouseOut);
 
                 index.removeEventListener('mouseover', ucMouseOver);
                 index.removeEventListener('mouseout', ucMouseOut);
@@ -41,7 +52,10 @@ function changeDark(){
 
             btn.style.rotate = "180deg";
             btn.style.filter = "brightness(0) saturate(100%) invert(16%) sepia(18%) saturate(7249%) hue-rotate(193deg) brightness(95%) contrast(98%)";
-            isDark = true;
+            if(click){
+                isDark = true;
+                localStorageSetting("save");
+            }
         } else{
             body.style.backgroundColor = "#fff8f3";
             header.style.backgroundColor = "rgba(255, 248, 243, 0.75)";
@@ -58,18 +72,33 @@ function changeDark(){
             });
             
             unitContainers.forEach((index) => {
-                index.style.background = "linear-gradient(20deg, #d1d1d1, #aba9a4)";
+                index.style.backgroundColor = "#aba9a4";
                 index.addEventListener('mouseover', ucMouseOver);
                 index.addEventListener('mouseout', ucMouseOut);
+                index.removeEventListener("mouseover", darkUCMouseOver);
+                index.removeEventListener("mouseout", darkUCMouseOut);
             });
 
             btn.style.rotate = "0deg";
             btn.style.filter = "brightness(0) saturate(100%) invert(70%) sepia(11%) saturate(3984%) hue-rotate(134deg) brightness(109%) contrast(102%)";
-            isDark = false;
+            if(click){
+                isDark = false;
+                localStorageSetting("save");
+            }
         }
-    })
+    }
+    btn.addEventListener("click", () => modeChange(true));
 }
-
+localStorageSetting("load");
 changeDark();
 
-
+function localStorageSetting(action){
+    if(action === "save"){
+        localStorage.setItem("isDark", JSON.stringify(isDark));
+    }
+    if(action == "load"){
+        isDark = localStorage.getItem("isDark");
+        isDark === "false" ? isDark = false : isDark = true;
+        //isDark = Boolean(isDark);
+    }
+}
