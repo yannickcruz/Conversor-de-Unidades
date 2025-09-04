@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../CSS/default_style.css">
+    <link rel="stylesheet" href="../CSS/pages.css">
+    <link rel="icon" type="image/x-icon" href="./Source/img/icon.ico">
+    <title>Conversor de Unidades</title>
+</head>
+<body>
+    <header id="navbar">
+        <div id="subcontainer">
+                <a href="../index.html"><img id="logo" src="../Source/img/UC-V2.png" alt="Logo"></a>
+                <h1 id="title">Conversor de unidades</h1>
+        </div>
+        <img src="../Source/img/dark-mode.png" alt="Modo escuro" id="dark">
+    </header>
+    <nav id="unitBar">
+        <p class="std-text">Caso deseje converter outras grandezas, acesse-as por aqui:</p>
+        <ul id="convList">
+            <li><a class="linkText" id="selected" href="#">Comprimento</a></li>
+            <li><a class="linkText" href="./area.html">Area</a></li>
+            <li><a class="linkText" href="./vol.html">Volume</a></li>
+            <li><a class="linkText" href="./temp.html">Temperatura</a></li>
+            <li><a class="linkText" href="#">Massa</a></li>
+            <li><a class="linkText" href="./time.html">Tempo</a></li>
+            <li><a class="linkText" href="./pressure.html">Pressão</a></li>
+            <li><a class="linkText" href="#">PlaceHolder</a></li>
+            <li><a class="linkText" href="#">PlaceHolder</a></li>
+        </ul>
+    </nav>
+    <section id="converter">
+        <p class="std-text">Selecione as unidades para converter</p>
+        <div class="unitContainer">
+            <label for="from">De:</label>
+            <input type="text" placeholder="0" id="from">
+            <select name="Input" id="input">
+                <option value="Meter">Metro</option>
+                <option value="KM">Quilômetro</option>
+                <option value="CM">Centimetro</option>
+                <option value="MM">Milímetro</option>
+                <option value="UM">Micrômetro</option>
+                <option value="NM">Nanômetro</option>
+                <option value="Mile">Milha</option>
+                <option value="Yard">Jarda</option>
+                <option value="Foot">Pés</option>
+                <option value="In">Polegada</option>
+                <option value="LY">Ano-luz</option>
+            </select>
+        </div>
+    </section>
+    <script src="../Script/main.js"></script>
+    <script src="../Script/pagesDarkMode.js"></script>
+</body>
+</html>
