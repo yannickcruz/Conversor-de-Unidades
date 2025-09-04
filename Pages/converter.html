@@ -33,21 +33,30 @@
     <section id="converter">
         <p class="std-text">Selecione as unidades para converter</p>
         <div class="unitContainer">
-            <label for="from">De:</label>
-            <input type="text" placeholder="0" id="from">
-            <select name="Input" id="input">
-                <option value="Meter">Metro</option>
-                <option value="KM">Quilômetro</option>
-                <option value="CM">Centimetro</option>
-                <option value="MM">Milímetro</option>
-                <option value="UM">Micrômetro</option>
-                <option value="NM">Nanômetro</option>
-                <option value="Mile">Milha</option>
-                <option value="Yard">Jarda</option>
-                <option value="Foot">Pés</option>
-                <option value="In">Polegada</option>
-                <option value="LY">Ano-luz</option>
-            </select>
+            <form action="selectConverter">
+                <tbody id="formBody">
+                    <tr>
+                        <td><b>De:</b></td>
+                        <td><b>Para:</b></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="text" id="fromInput">
+                        </td>
+                        <td>
+                            <input type="text" id="toInput">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="selectContainer">
+
+                        </td>
+                        <td class="selectContainer">
+
+                        </td>
+                    </tr>
+                </tbody>
+            </form>
         </div>
     </section>
     <script src="../Script/main.js"></script>
