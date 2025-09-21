@@ -19,43 +19,48 @@
     <nav id="unitBar">
         <p class="std-text">Caso deseje converter outras grandezas, acesse-as por aqui:</p>
         <ul id="convList">
-            <li><a class="linkText" id="selected" href="#">Comprimento</a></li>
-            <li><a class="linkText" href="./area.html">Area</a></li>
-            <li><a class="linkText" href="./vol.html">Volume</a></li>
-            <li><a class="linkText" href="./temp.html">Temperatura</a></li>
-            <li><a class="linkText" href="#">Massa</a></li>
-            <li><a class="linkText" href="./time.html">Tempo</a></li>
-            <li><a class="linkText" href="./pressure.html">Pressão</a></li>
-            <li><a class="linkText" href="#">PlaceHolder</a></li>
-            <li><a class="linkText" href="#">PlaceHolder</a></li>
+            <li><a class="linkText" data-value="comp" id="selected" href="../Pages/converter.html?action=length">Comprimento</a></li>
+            <li><a class="linkText" data-value="area" href="../converter.html?action=area">Area</a></li>
+            <li><a class="linkText" data-value="vol" href="../Pages/converter.html?action=volume">Volume</a></li>
+            <li><a class="linkText" data-value="temp" href="../Pages/converter.html?action=temperature">Temperatura</a></li>
+            <li><a class="linkText" data-value="mass" href="../Pages/converter.html?action=weight">Massa</a></li>
+            <li><a class="linkText" data-value="time" href="../Pages/converter.html?action=time">Tempo</a></li>
+            <li><a class="linkText" data-value="press" href="../Pages/converter.html?action=pressure">Pressão</a></li>
+            <li><a class="linkText" data-value="" href="#">PlaceHolder</a></li>
+            <li><a class="linkText" data-value="" href="#">PlaceHolder</a></li>
         </ul>
     </nav>
     <section id="converter">
         <p class="std-text">Selecione as unidades para converter</p>
         <div class="unitContainer">
             <form action="selectConverter">
-                <tbody id="formBody">
-                    <tr>
-                        <td><b>De:</b></td>
-                        <td><b>Para:</b></td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <input type="text" id="fromInput">
-                        </td>
-                        <td>
-                            <input type="text" id="toInput">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="selectContainer">
+                <table>
+                    <tbody id="formBody">
+                        <tr id="first-tr">
+                            <td><b>De:</b></td>
+                            <td><b>Para:</b></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="text" id="fromInput">
+                            </td>
+                            <td>
+                                <input type="text" id="toInput">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="selectContainer">
+                                <select name="" id="unit-select">
+                                    <option value="m">metro</option>
+                                    <option value="m">metro</option>
+                                </select>
+                            </td>
+                            <td class="selectContainer">
 
-                        </td>
-                        <td class="selectContainer">
-
-                        </td>
-                    </tr>
-                </tbody>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </form>
         </div>
     </section>

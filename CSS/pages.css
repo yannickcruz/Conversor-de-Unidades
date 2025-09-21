@@ -52,3 +52,16 @@
     display: flex;
     gap: 0.75rem;
 }
+
+
+/*Form Styles*/
+
+#formBody{
+    display: flex;
+    flex-direction: column;
+}
+
+#first-tr{
+    display: flex;
+    gap: 9.5rem;
+}
