@@ -19,7 +19,7 @@
     <nav id="unitBar">
         <p class="std-text">Caso deseje converter outras grandezas, acesse-as por aqui:</p>
         <ul id="convList">
-            <li><a class="linkText" data-value="comp" id="selected" href="../Pages/converter.html?action=length">Comprimento</a></li>
+            <li><a class="linkText" data-value="leng" id="selected" href="../Pages/converter.html?action=length">Comprimento</a></li>
             <li><a class="linkText" data-value="area" href="../converter.html?action=area">Area</a></li>
             <li><a class="linkText" data-value="vol" href="../Pages/converter.html?action=volume">Volume</a></li>
             <li><a class="linkText" data-value="temp" href="../Pages/converter.html?action=temperature">Temperatura</a></li>
@@ -40,7 +40,7 @@
                             <td><b>De:</b></td>
                             <td><b>Para:</b></td>
                         </tr>
-                        <tr>
+                        <tr id="inputs-tr">
                             <td>
                                 <input type="text" id="fromInput" class="inputs" placeholder="metros">
                             </td>
@@ -50,13 +50,13 @@
                         </tr>
                         <tr id="select-tr">
                             <td class="selectContainer">
-                                <select name="" class="unit-select">
+                                <select name="" class="unit-select" id="input-select">
                                     <option value="m">metro</option>
                                     <option value="m">metro</option>
                                 </select>
                             </td>
                             <td class="selectContainer">
-                                <select name="" class="unit-select">
+                                <select name="" class="unit-select" id="output-select">
                                     <option value="m">metro</option>
                                     <option value="m">metro</option>
                                 </select>
@@ -69,5 +69,6 @@
     </section>
     <script src="../Script/main.js"></script>
     <script src="../Script/pagesDarkMode.js"></script>
+    <script src="../Script/converterScript.js"></script>
 </body>
 </html>
