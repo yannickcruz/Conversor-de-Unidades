@@ -39,7 +39,7 @@ function create_select(quantity){
         {value: 'sqyd', text: 'jarda quadrada'},
         {value: 'sqft', text: 'pé quadrado'},
         {value: 'sqin', text: 'polegada quadrada'},
-        {value: 'ac', text: 'acre'},
+        {value: 'ac', text: 'acre'}
     ];
     const volume_data = [
         {value: 'm3', text: 'metro cúbico'},
@@ -51,7 +51,61 @@ function create_select(quantity){
         {value: 'ml', text: 'mililitro'},
         {value: 'USG', text: 'galão americano'},
         {value: 'USQ', text: 'quarto americano'},
-        
+        {value: 'IMG', text: 'galão imperial'},
+        {value: 'IMQ', text: 'quarto imperial'},
+        {value: 'cumi', text: 'milha cúbica'},
+        {value: 'cuyd', text: 'jarda cúbica'},
+        {value: 'cuft', text: 'pé cúbico'},
+        {value: 'cuin', text: 'polegada cúbica'}        
+    ];
+    const temperature_data = [
+        {value: 'c', text: 'celsius'},
+        {value: 'f', text: 'fahrenheit'},
+        {value: 'k', text: 'kelvin'}
+    ];
+    const weight_data = [
+        {value: 'kg', text: 'quilograma'},
+        {value: 'g', text: 'grama'},
+        {value: 'mg', text: 'miligrama'},
+        {value: 'ton', text: 'tonelada'},
+        {value: 'lt', text: 'tonelada longa'},
+        {value: 'st', text: 'tonelada curta'},
+        {value: 'lb', text: 'libra'},
+        {value: 'ounce', text: 'onça'},
+        {value: 'amu', text: 'unidade de massa atômica'}
+    ];
+    const time_data = [
+        {value: 's', text: 'segundo'},
+        {value: 'ms', text: 'milisegundo'},
+        {value: 'us', text: 'microsegundo'},
+        {value: 'ns', text: 'nanosegundo'},
+        {value: 'ps', text: 'picosegundo'},
+        {value: 'min', text: 'minuto'},
+        {value: 'hr', text: 'hora'},
+        {value: 'day', text: 'dia'},
+        {value: 'week', text: 'semana'},
+        {value: 'mo', text: 'mês'},
+        {value: 'yr ', text: 'ano'}
+    ];
+    const pressure_data = [
+        {value: 'Pa', text: 'pascal'},
+        {value: 'kPa', text: 'quilopascal'},
+        {value: 'bar', text: 'bar'},
+        {value: 'mbar', text: 'milibar'},
+        {value: 'psi', text: 'libra por polegada quadrada (psi)'},
+        {value: 'ksi', text: 'quilolibra por polegada quadrada (ksi)'},
+        {value: 'atm', text: 'atmosfera padrão'},
+        {value: 'at', text: 'atmosfera técnica'},
+        {value: 'torr', text: 'torr'},
+        {value: 'mmHg', text: 'milímetro de mercúrio'},
+        {value: 'inHg', text: 'polegada de mercúrio'},
+        {value: 'mmH2O', text: 'milímetro de coluna d\'água'},
+        {value: 'cmH2O', text: 'centímetro de coluna d\'água'},
+        {value: 'inH2O', text: 'polegada de coluna d\'água'},
+        {value: 'hPa', text: 'hectopascal'}
+    ];
+    const speed_data = [
+        {value: 'hPa', text: 'hectopascal'},
     ]
     const inputs = document.querySelectorAll(".inputs");
     const option_td = document.querySelectorAll("#select-tr td");
