@@ -20,12 +20,13 @@
     font-family: 'Bungee', Arial, Helvetica, sans-serif;
     font-size: 1.2rem;
     color: #0084ff;
-    background-color: #aba9a4;
+    background-color: #d4d4d4;
     padding: 0.5rem;
     border-radius: 10px;
+    border: none;
 }
 .linkText:hover{
-    background-color: #d1d1d1;
+    background-color: #e6e6e6;
     cursor: pointer;
     transform: scale(1.05);
 }

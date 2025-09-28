@@ -31,7 +31,7 @@
     -webkit-text-fill-color: transparent;
 }
 
-.unitChoose{
+#unitChoose{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     padding: 0 10rem;

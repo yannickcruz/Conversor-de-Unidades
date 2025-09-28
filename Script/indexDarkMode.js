@@ -104,3 +104,13 @@ function localStorageSetting(action){
 }
 
 
+const unitChoose = document.getElementById("unitChoose");
+let targetValue;
+unitChoose.addEventListener('click', (link) =>{
+    const linkTarget = link.target;
+    if(linkTarget.tagName === "A"){
+        targetValue = linkTarget.getAttribute("data-value");
+        sessionStorage.setItem('sendUnit', targetValue);
+    }
+});
+
