@@ -29,9 +29,9 @@ function unitSelection() {
 }
 document.addEventListener('DOMContentLoaded', () => {
     conv_btns.forEach((key) => {
-        if (key.getAttribute("data-value") === sessionStorage.getItem('sendUnit')){
+        if (key.getAttribute("data-value") === sessionStorage.getItem('sendUnit')) {
             key.setAttribute("id", "selected");
-        } 
+        }
     });
     unitSelection();
 })
@@ -40,7 +40,7 @@ function create_select(quantity) {
     const inputs = document.querySelectorAll(".inputs");
     const option_td = document.querySelectorAll("#select-tr td");
     option_td.forEach((key) => {
-        while(key.firstChild){
+        while (key.firstChild) {
             key.removeChild(key.firstChild);
         }
     });
@@ -92,4 +92,21 @@ function create_select(quantity) {
 
 }
 
-//create_select('area');
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    const fromInput = document.getElementById("fromInput");
+    const toInput = document.getElementById("toInput");
+    // input select
+    const i_select = document.getElementById("input-select");
+    // output select
+    const o_select = document.getElementById("output-select");
+    function changePlace(sel, io){
+        let current = sel.options[sel.selectedIndex];
+        current = current.innerText;
+        io === "input" ? fromInput.setAttribute("placeholder", current) : toInput.setAttribute("placeholder", current);
+    }
+    console.log(i_select)
+    i_select.addEventListener('change', () => {changePlace(i_select, "input")});
+    o_select.addEventListener('change', () => {changePlace(o_select, "output")});
+})
