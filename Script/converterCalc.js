@@ -23,4 +23,6 @@ export function calcLength(input, output, value) {
 
     inputValue = value * inputValue;
     outputValue = inputValue / outputValue;
+    return outputValue;
 }
+
