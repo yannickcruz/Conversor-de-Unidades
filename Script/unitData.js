@@ -30,7 +30,6 @@ export const volume_data = [
     { value: 'km3', text: 'quilômetro cúbico' },
     { value: 'cm3', text: 'centímetro cúbico' },
     { value: 'mm3', text: 'milímetro cúbico' },
-    { value: 'um3', text: 'micrômetro cúbico' },
     { value: 'l', text: 'litro' },
     { value: 'ml', text: 'mililitro' },
     { value: 'USG', text: 'galão americano' },
