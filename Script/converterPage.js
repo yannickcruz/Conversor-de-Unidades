@@ -6,6 +6,12 @@ const urlData = new URLSearchParams(window.location.search);
 let selectedBtn;
 conv_option.addEventListener('click', (btn) => {
     const btnTarget = btn.target;
+    const selects = document.querySelectorAll(".unit-select");
+    selects.forEach((key) =>{
+        while(key.firstChild){
+            key.removeChild(key.firstChild);
+        }
+    })
     if (btnTarget.tagName === 'BUTTON') {
         conv_btns.forEach((key) => {
             key.getAttribute("id") === "selected" ? key.removeAttribute("id") : null;
@@ -36,23 +42,9 @@ document.addEventListener('DOMContentLoaded', () => {
     unitSelection();
 })
 function create_select(quantity) {
-
     const inputs = document.querySelectorAll(".inputs");
-    const option_td = document.querySelectorAll("#select-tr td");
-    option_td.forEach((key) => {
-        while (key.firstChild) {
-            key.removeChild(key.firstChild);
-        }
-    });
-    const input_select = document.createElement("select");
-    input_select.className = "unit-select"
-    input_select.id = "input-select";
-    option_td[0].appendChild(input_select);
-
-    const output_select = document.createElement("select");
-    output_select.className = "unit-select";
-    output_select.id = "output-select";
-    option_td[1].appendChild(output_select);
+    const input_select = document.getElementById("input-select");
+    const output_select = document.getElementById("output-select");
 
     if (quantity === 'length') {
         //const control = document.createElement("option");
@@ -81,7 +73,7 @@ function create_select(quantity) {
             const option = document.createElement("option");
             option.value = data.value;
             option.innerText = data.text;
-            option.value === 'm' ? option.setAttribute("selected", "selected") : null;
+            option.value === 'm2' ? option.setAttribute("selected", "") : null;
             input_select.appendChild(option);
             const option_clone = option.cloneNode(true);
             output_select.appendChild(option_clone);
@@ -91,8 +83,6 @@ function create_select(quantity) {
     }
 
 }
-
-
 
 document.addEventListener('DOMContentLoaded', () => {
     const fromInput = document.getElementById("fromInput");
@@ -109,4 +99,6 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log(i_select)
     i_select.addEventListener('change', () => {changePlace(i_select, "input")});
     o_select.addEventListener('change', () => {changePlace(o_select, "output")});
-})
+});
+
+

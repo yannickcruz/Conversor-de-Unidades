@@ -8,7 +8,7 @@ export const leng_data = [
     { value: 'mi', text: 'milha' },
     { value: 'yd', text: 'jarda' },
     { value: 'ft', text: 'pés' },
-    { value: 'in', text: 'polegada' },
+    { value: 'inch', text: 'polegada' },
     { value: 'ly', text: 'ano-luz' },
     { value: 'ls', text: 'segundo-luz' }
 ];
