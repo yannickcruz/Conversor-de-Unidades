@@ -11,7 +11,26 @@ export function conversionCalc(input, output, value, type) {
     const quantityName = getList(type);
     let inputValue;
     let outputValue;
-
+    if(type === "temperature_data"){
+        function cTOf(inpVal){
+            return inpVal * (9/5) + 32;
+        }
+        function cTOk(inpVal){
+            return inpVal - 273.15;
+        }
+        if(input === "f"){
+            inputValue = cTOf(value);
+            if(output === "k") return cTOk(inputValue);;
+            if(output ==="f") return value;
+            return inputValue;
+        }
+        if(input === "k"){
+            inputValue = cTOk(value);
+            if(output === "f") return cTOf(inputValue);
+            if(output === "k") return value;
+            return inputValue;
+        }
+    }
     quantityName.forEach(key => {
         key.name === input ? inputValue = key.value : null;
         key.name === output ? outputValue = key.value : null;
@@ -20,3 +39,5 @@ export function conversionCalc(input, output, value, type) {
     outputValue = inputValue / outputValue;
     return outputValue;
 }
+
+console.log(conversionCalc("k", "f", 2, "temperature_data"));
