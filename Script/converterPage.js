@@ -1,5 +1,7 @@
-import * as unitData from './unitData.js';
+import unitData from "./unitData.json" with { type: "json" };
+import { conversionCalc } from "./converterCalc.js";
 
+const selectsNone = document.querySelectorAll(".unit-select");
 const conv_option = document.getElementById("convList");
 const conv_btns = document.querySelectorAll(".linkText");
 const urlData = new URLSearchParams(window.location.search);
@@ -45,10 +47,26 @@ function create_select(quantity) {
     const inputs = document.querySelectorAll(".inputs");
     const input_select = document.getElementById("input-select");
     const output_select = document.getElementById("output-select");
+    inputs.forEach((key) => {key.value = ''});
+    function getArray(type){
+        if(unitData[type]) return unitData[type];
+    }
+    function createOptions(type){
+        const arrayObj = getArray(type);
+        for (const data of arrayObj) {
+            const option = document.createElement("option");
+            option.value = data.value;
+            option.innerText = data.text;
+            option.value === 'm2' ? option.setAttribute("selected", "") : null;
+            input_select.appendChild(option);
+            const option_clone = option.cloneNode(true);
+            output_select.appendChild(option_clone);
+        }
+    }
 
     if (quantity === 'length') {
-        //const control = document.createElement("option");
-        //control.innerText = "Input";
+        const selects = document.querySelectorAll(".unit-select");
+        selects.forEach((key) => {key.setAttribute("name", "leng_data")});
         inputs.forEach((input) => {
             input.setAttribute("placeholder", "metro");
         });
@@ -65,7 +83,9 @@ function create_select(quantity) {
             const option_clone = option.cloneNode(true);
             output_select.appendChild(option_clone);
         }
-    } else if (quantity === 'area') {
+    } else if(quantity === 'area') {
+        const selects = document.querySelectorAll(".unit-select");
+        selects.forEach((key) => {key.setAttribute("name", "area_data")});
         inputs.forEach((input) => {
             input.setAttribute("placeholder", "metro quadrado");
         });
@@ -78,8 +98,48 @@ function create_select(quantity) {
             const option_clone = option.cloneNode(true);
             output_select.appendChild(option_clone);
         }
-    } else if (quantity === 'vol') {
-
+    } else if(quantity === 'volume') {
+        selectsNone.forEach((key) => {key.setAttribute("name", "volume_data")});
+        inputs.forEach((input) => {
+            input.setAttribute("placeholder", "metro cúbico");
+        });
+        const typeUnit = input_select.getAttribute("name");
+        createOptions(typeUnit);
+    } else if(quantity === 'temperature'){
+        selectsNone.forEach((key) => {key.setAttribute("name", "temperature_data")});
+        inputs.forEach((input) => {
+            input.setAttribute("placeholder", "celsius");
+        });
+        const typeUnit = input_select.getAttribute("name");
+        createOptions(typeUnit);
+    } else if(quantity === 'weight'){
+        selectsNone.forEach((key) => {key.setAttribute("name", "weight_data")});
+        inputs.forEach((input) => {
+            input.setAttribute("placeholder", "quilograma");
+        });
+        const typeUnit = input_select.getAttribute("name");
+        createOptions(typeUnit);
+    } else if(quantity === 'time'){
+        selectsNone.forEach((key) => {key.setAttribute("name", "time_data")});
+        inputs.forEach((input) => {
+            input.setAttribute("placeholder", "segundo");
+        });
+        const typeUnit = input_select.getAttribute("name");
+        createOptions(typeUnit);
+    } else if(quantity === 'pressure'){
+        selectsNone.forEach((key) => {key.setAttribute("name", "pressure_data")});
+        inputs.forEach((input) => {
+            input.setAttribute("placeholder", "pascal");
+        });
+        const typeUnit = input_select.getAttribute("name");
+        createOptions(typeUnit);
+    } else if(quantity === 'speed'){
+        selectsNone.forEach((key) => {key.setAttribute("name", "speed_data")});
+        inputs.forEach((input) => {
+            input.setAttribute("placeholder", "metros por segundo");
+        });
+        const typeUnit = input_select.getAttribute("name");
+        createOptions(typeUnit);
     }
 
 }
@@ -100,5 +160,26 @@ document.addEventListener('DOMContentLoaded', () => {
     i_select.addEventListener('change', () => {changePlace(i_select, "input")});
     o_select.addEventListener('change', () => {changePlace(o_select, "output")});
 });
+
+const inInput = document.getElementById("fromInput");
+const outInput = document.getElementById("toInput");
+function calcConversion(num){
+    const inputSelect = document.getElementById("input-select");
+    const outputSelect = document.getElementById("output-select");
+    let currentInput = inputSelect.options[inputSelect.selectedIndex].getAttribute("value");
+    let currentOutput = outputSelect.options[outputSelect.selectedIndex].getAttribute("value");
+    console.log(inputSelect.getAttribute("name"));
+    let result = conversionCalc(currentInput, currentOutput, num, inputSelect.getAttribute("name"));
+    outInput.value = result;
+    console.log(result);
+}
+inInput.addEventListener('input', (num) => {calcConversion(num.target.value)});
+selectsNone.forEach((key) => {
+    key.addEventListener('change', () => {
+        const num = parseFloat(inInput.value);
+        console.log(num)
+        if(typeof(num) === 'number' && !isNaN(num)) calcConversion(parseFloat(num));
+    })
+})
 
 
