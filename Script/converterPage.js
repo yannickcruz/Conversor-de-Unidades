@@ -1,14 +1,18 @@
 import unitData from "./unitData.json" with { type: "json" };
 import { conversionCalc } from "./converterCalc.js";
+
 let isDark;
+let clickIsDark;
+
 const selectsNone = document.querySelectorAll(".unit-select");
 const conv_option = document.getElementById("convList");
 const conv_btns = document.querySelectorAll(".linkText");
-const urlData = new URLSearchParams(window.location.search);
-let selectedBtn;
+const inputs = document.querySelectorAll(".inputs");
+const selects = document.querySelectorAll(".unit-select");
+
+
 conv_option.addEventListener('click', (btn) => {
     const btnTarget = btn.target;
-    const selects = document.querySelectorAll(".unit-select");
     selects.forEach((key) =>{
         while(key.firstChild){
             key.removeChild(key.firstChild);
@@ -22,7 +26,9 @@ conv_option.addEventListener('click', (btn) => {
         sessionStorage.setItem('sendUnit', btnTarget.getAttribute("data-value"));
         unitSelection();
     }
-})
+});
+
+
 function unitSelection() {
     conv_btns.forEach((key) => {
         let selected;
@@ -35,6 +41,8 @@ function unitSelection() {
         }
     })
 }
+
+
 document.addEventListener('DOMContentLoaded', () => {
     conv_btns.forEach((key) => {
         if (key.getAttribute("data-value") === sessionStorage.getItem('sendUnit')) {
@@ -42,9 +50,10 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
     unitSelection();
-})
+});
+
+
 function create_select(quantity) {
-    const inputs = document.querySelectorAll(".inputs");
     const input_select = document.getElementById("input-select");
     const output_select = document.getElementById("output-select");
     inputs.forEach((key) => {key.value = ''});
@@ -144,10 +153,11 @@ function create_select(quantity) {
 
 }
 
+
 document.addEventListener('DOMContentLoaded', () => {
     const fromInput = document.getElementById("fromInput");
     const toInput = document.getElementById("toInput");
-    darkMode();
+    darkMode(false);
     // input select
     const i_select = document.getElementById("input-select");
     // output select
@@ -162,8 +172,10 @@ document.addEventListener('DOMContentLoaded', () => {
     o_select.addEventListener('change', () => {changePlace(o_select, "output")});
 });
 
+
 const inInput = document.getElementById("fromInput");
 const outInput = document.getElementById("toInput");
+
 function calcConversion(num){
     const inputSelect = document.getElementById("input-select");
     const outputSelect = document.getElementById("output-select");
@@ -174,6 +186,8 @@ function calcConversion(num){
     outInput.value = result;
     console.log(result);
 }
+
+
 inInput.addEventListener('input', (num) => {calcConversion(num.target.value)});
 selectsNone.forEach((key) => {
     key.addEventListener('change', () => {
@@ -182,6 +196,7 @@ selectsNone.forEach((key) => {
         if(typeof(num) === 'number' && !isNaN(num)) calcConversion(parseFloat(num));
     })
 })
+
 
 function localStorageSetting(action){
     if(action === "save"){
@@ -194,32 +209,66 @@ function localStorageSetting(action){
     }
 }
 
-const btn = document.getElementById("dark");
-btn.addEventListener('click', darkMode);
 
-function darkMode(){
+
+const btn = document.getElementById("dark");
+btn.addEventListener('click', () => {darkMode(true)});
+
+function darkMode(click){
     localStorageSetting("load");
-    const linktextClass = document.querySelectorAll(".linkText");
-    const btnSelected = document.getElementById("selected");
-    //const title = document.getElementById("title");
+    click ? clickIsDark = isDark : clickIsDark = !isDark;
+
+    const styleSheet = document.styleSheets;
     const header = document.getElementById("navbar");
     const body = document.body;
     const footer = document.getElementById("page-foot");
 
-    if(isDark === false){
+    if(!clickIsDark){
         btn.style.rotate = "180deg";
-        isDark = true;
+        if(click){
+            isDark = true;
+            localStorageSetting("save");
+        }
+        
 
         body.style.backgroundColor = "#161616";
         header.style.backgroundColor = "rgba(22, 22, 22, 0.75)";
         header.style.boxShadow = "none";
         header.style.borderBottom = "1px #ffffff solid";
+        for(const sheet of styleSheet){
+            for(const prop of sheet.cssRules){
+                if(prop.selectorText === "#selected"){
+                    prop.style["color"] = "#10066bff"
+                    prop.style["background-color"] = "#ffffff";
+                }
+                if(prop.selectorText === ".linkText"){
+                    prop.style["color"] = "#ffffff"
+                    prop.style["background-color"] = "#10066bff";
+                }
+                if(prop.selectorText === ".std-text"){
+                    prop.style["color"] = "#ffffff";
+                }
+            }
+        }
+        inputs.forEach((key) => {
+            key.style.backgroundColor = "#161515";
+            key.style.color = "#ffffff";
+            key.style.borderColor = "#ffffff";
+        })
+        selects.forEach((key) => {
+            key.style.backgroundColor = "#161515";
+            key.style.color = "#ffffff";
+        })
+        
         //footer.style.backgroundColor = "#06003fff";
 
-        localStorageSetting("save");
-    } else if(isDark === true){
+    } else if(clickIsDark){
         btn.style.rotate = "0deg";
-        isDark = false;
+        if(click){
+            isDark = false;
+            localStorageSetting("save");
+        }
+        
 
         body.style.backgroundColor = "#fff8f3";
         header.style.backgroundColor = "rgba(255, 248, 243, 0.75)";
@@ -227,7 +276,31 @@ function darkMode(){
         header.style.borderBottom = "none";
         //footer.style.backgroundColor = "#2fb6ff";
 
-        localStorageSetting("save");
+        for(const sheet of styleSheet){
+            for(const prop of sheet.cssRules){
+                if(prop.selectorText === "#selected"){
+                    prop.style["color"] = "#d4d4d4"
+                    prop.style["background-color"] = "#0084ff";
+                }
+                if(prop.selectorText === ".linkText"){
+                    prop.style["color"] = "#0084ff"
+                    prop.style["background-color"] = "#d4d4d4";
+                }
+                if(prop.selectorText === ".std-text"){
+                    prop.style["color"] = "#161515";
+                }
+            }
+        }
+        inputs.forEach((key) => {
+            key.style.backgroundColor = "#ffffff";
+            key.style.color = "";
+            key.style.borderColor = "#000000";
+        })
+        selects.forEach((key) => {
+            key.style.backgroundColor = "#ffffff";
+            key.style.color = "#000000";
+        })
+
     }
 
 
