@@ -1,6 +1,6 @@
 import unitData from "./unitData.json" with { type: "json" };
 import { conversionCalc } from "./converterCalc.js";
-
+let isDark;
 const selectsNone = document.querySelectorAll(".unit-select");
 const conv_option = document.getElementById("convList");
 const conv_btns = document.querySelectorAll(".linkText");
@@ -147,6 +147,7 @@ function create_select(quantity) {
 document.addEventListener('DOMContentLoaded', () => {
     const fromInput = document.getElementById("fromInput");
     const toInput = document.getElementById("toInput");
+    darkMode();
     // input select
     const i_select = document.getElementById("input-select");
     // output select
@@ -182,4 +183,53 @@ selectsNone.forEach((key) => {
     })
 })
 
+function localStorageSetting(action){
+    if(action === "save"){
+        localStorage.setItem("isDark", JSON.stringify(isDark));
+    }
+    if(action == "load"){
+        isDark = localStorage.getItem("isDark");
+        isDark === "false" ? isDark = false : isDark = true;
+        //isDark = Boolean(isDark);
+    }
+}
+
+const btn = document.getElementById("dark");
+btn.addEventListener('click', darkMode);
+
+function darkMode(){
+    localStorageSetting("load");
+    const linktextClass = document.querySelectorAll(".linkText");
+    const btnSelected = document.getElementById("selected");
+    //const title = document.getElementById("title");
+    const header = document.getElementById("navbar");
+    const body = document.body;
+    const footer = document.getElementById("page-foot");
+
+    if(isDark === false){
+        btn.style.rotate = "180deg";
+        isDark = true;
+
+        body.style.backgroundColor = "#161616";
+        header.style.backgroundColor = "rgba(22, 22, 22, 0.75)";
+        header.style.boxShadow = "none";
+        header.style.borderBottom = "1px #ffffff solid";
+        //footer.style.backgroundColor = "#06003fff";
+
+        localStorageSetting("save");
+    } else if(isDark === true){
+        btn.style.rotate = "0deg";
+        isDark = false;
+
+        body.style.backgroundColor = "#fff8f3";
+        header.style.backgroundColor = "rgba(255, 248, 243, 0.75)";
+        header.style.boxShadow = "0px 0px 10px 2px";
+        header.style.borderBottom = "none";
+        //footer.style.backgroundColor = "#2fb6ff";
+
+        localStorageSetting("save");
+    }
+
+
+}
 
