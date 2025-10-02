@@ -86,12 +86,12 @@ footer{
 }
 
 @media(max-width: 950px){
-    .unitChoose{
+    #unitChoose{
         padding: 0 5rem;
     }
 }
 @media(max-width: 768px){
-    .unitChoose{
+    #unitChoose{
         grid-template-columns: repeat(2, 1fr);
         padding: 0 2rem;
     }
@@ -104,6 +104,28 @@ footer{
     }
     #logo{
         width: 3rem;
+    }
+}
+
+@media(max-width: 500px){
+    #unitChoose{
+        grid-template-columns: repeat(1, 1fr);
+    }
+    #textTitle{
+        font-size: 1.2rem;
+    }
+    #title{
+        font-size: 1.15rem;
+    }
+    .textbox p{
+        font-size: 1rem;
+    }
+    #dark{
+        width: 2.5rem;
+        margin-right: auto;
+    }
+    #subcontainer{
+        gap: 1rem;
     }
 }
 
