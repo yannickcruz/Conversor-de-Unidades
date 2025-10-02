@@ -181,10 +181,8 @@ function calcConversion(num){
     const outputSelect = document.getElementById("output-select");
     let currentInput = inputSelect.options[inputSelect.selectedIndex].getAttribute("value");
     let currentOutput = outputSelect.options[outputSelect.selectedIndex].getAttribute("value");
-    console.log(inputSelect.getAttribute("name"));
     let result = conversionCalc(currentInput, currentOutput, num, inputSelect.getAttribute("name"));
     outInput.value = result;
-    console.log(result);
 }
 
 

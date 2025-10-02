@@ -20,15 +20,20 @@ export function conversionCalc(input, output, value, type) {
         }
         if(input === "f"){
             inputValue = cTOf(value);
+            if(output === "c") return inputValue
             if(output === "k") return cTOk(inputValue);;
             if(output ==="f") return value;
-            return inputValue;
         }
         if(input === "k"){
             inputValue = cTOk(value);
+            if(output === "c") return inputValue
             if(output === "f") return cTOf(inputValue);
             if(output === "k") return value;
-            return inputValue;
+        }
+        if(input === "c"){
+            if(output === "c") return value;
+            if(output === "f") return cTOf(value);
+            if(output === "k") return cTOk(value);
         }
     }
     quantityName.forEach(key => {
