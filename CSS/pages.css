@@ -203,7 +203,7 @@ footer{
     }
 }
 
-@media(max-height: 600px) and (min-height: 768px){
+@media(max-height: 600px) and (min-width: 768px){
     header{
         height: 3rem;
     }
@@ -224,7 +224,7 @@ footer{
     }
 }
 
-@media(max-height: 600px) and (max-width: 768px){
+@media(min-height: 200px) and (max-width: 768px){
     header{
         height: 3rem;
     }
@@ -233,10 +233,13 @@ footer{
     }
     footer{
         height: 5rem;
-        top: 10rem;
+        top: 18rem;
     }
     #converter{
         top: 12rem;
+    }
+    #unitBar{
+        top: 8rem;
     }
     #dark{
         width: 2.5rem;

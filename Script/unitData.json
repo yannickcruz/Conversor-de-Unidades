@@ -95,10 +95,10 @@
     { "value": "mm/s", "text": "milímetros por segundo" },
     { "value": "km/h", "text": "quilômetros por hora" },
     { "value": "m/h", "text": "metros por hora" },
-    { "value": "mi/h", "text": "milhas por hora (mph)" },
+    { "value": "mi/h", "text": "milhas por hora" },
     { "value": "ft/s", "text": "pés por segundo" },
     { "value": "ft/min", "text": "pés por minuto" },
-    { "value": "knot", "text": "nós (nautical mile per hour)" },
+    { "value": "knot", "text": "nós" },
     { "value": "c", "text": "velocidade da luz no vácuo" },
     { "value": "mach", "text": "mach (velocidade do som)" }
   ],

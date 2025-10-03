@@ -72,92 +72,72 @@ function create_select(quantity) {
             output_select.appendChild(option_clone);
         }
     }
-
-    if (quantity === 'length') {
-        const selects = document.querySelectorAll(".unit-select");
-        selects.forEach((key) => {key.setAttribute("name", "leng_data")});
-        inputs.forEach((input) => {
-            input.setAttribute("placeholder", "metro");
-        });
-        for (const data of unitData.leng_data) {
-            const option = document.createElement("option");
-
-            option.value = data.value;
-            option.innerText = data.text;
-            option.value === 'm' ? option.setAttribute("selected", '') : null;
-
-            input_select.appendChild(option);
-            //input_select.appendChild(control);
-
-            const option_clone = option.cloneNode(true);
-            output_select.appendChild(option_clone);
-        }
-    } else if(quantity === 'area') {
-        const selects = document.querySelectorAll(".unit-select");
-        selects.forEach((key) => {key.setAttribute("name", "area_data")});
-        inputs.forEach((input) => {
-            input.setAttribute("placeholder", "metro quadrado");
-        });
-        for (const data of unitData.area_data) {
-            const option = document.createElement("option");
-            option.value = data.value;
-            option.innerText = data.text;
-            option.value === 'm2' ? option.setAttribute("selected", "") : null;
-            input_select.appendChild(option);
-            const option_clone = option.cloneNode(true);
-            output_select.appendChild(option_clone);
-        }
-    } else if(quantity === 'volume') {
-        selectsNone.forEach((key) => {key.setAttribute("name", "volume_data")});
-        inputs.forEach((input) => {
-            input.setAttribute("placeholder", "metro cúbico");
-        });
-        const typeUnit = input_select.getAttribute("name");
-        createOptions(typeUnit);
-    } else if(quantity === 'temperature'){
-        selectsNone.forEach((key) => {key.setAttribute("name", "temperature_data")});
-        inputs.forEach((input) => {
-            input.setAttribute("placeholder", "celsius");
-        });
-        const typeUnit = input_select.getAttribute("name");
-        createOptions(typeUnit);
-    } else if(quantity === 'weight'){
-        selectsNone.forEach((key) => {key.setAttribute("name", "weight_data")});
-        inputs.forEach((input) => {
-            input.setAttribute("placeholder", "quilograma");
-        });
-        const typeUnit = input_select.getAttribute("name");
-        createOptions(typeUnit);
-    } else if(quantity === 'time'){
-        selectsNone.forEach((key) => {key.setAttribute("name", "time_data")});
-        inputs.forEach((input) => {
-            input.setAttribute("placeholder", "segundo");
-        });
-        const typeUnit = input_select.getAttribute("name");
-        createOptions(typeUnit);
-    } else if(quantity === 'pressure'){
-        selectsNone.forEach((key) => {key.setAttribute("name", "pressure_data")});
-        inputs.forEach((input) => {
-            input.setAttribute("placeholder", "pascal");
-        });
-        const typeUnit = input_select.getAttribute("name");
-        createOptions(typeUnit);
-    } else if(quantity === 'speed'){
-        selectsNone.forEach((key) => {key.setAttribute("name", "speed_data")});
-        inputs.forEach((input) => {
-            input.setAttribute("placeholder", "metros por segundo");
-        });
-        const typeUnit = input_select.getAttribute("name");
-        createOptions(typeUnit);
-    } else if(quantity === 'acceleration'){
-        selectsNone.forEach((key) => {key.setAttribute("name", "acceleration_data")});
-        inputs.forEach((input) => {
-            input.setAttribute("placeholder", "metros por segundo ao quadrado");
-        });
-        const typeUnit = input_select.getAttribute("name");
-        createOptions(typeUnit);
+    const selects = document.querySelectorAll(".unit-select");
+    switch(quantity){
+        case "length":
+            selects.forEach((key) => {key.setAttribute("name", "leng_data")});
+            inputs.forEach((input) => {
+                input.setAttribute("placeholder", "metro");
+            });
+            createOptions("leng_data");
+            break;
+        case "area":
+            selects.forEach((key) => {key.setAttribute("name", "area_data")});
+            inputs.forEach((input) => {
+                input.setAttribute("placeholder", "metro quadrado");
+            });
+            createOptions("area_data");
+            break;
+        case "volume":
+            selectsNone.forEach((key) => {key.setAttribute("name", "volume_data")});
+            inputs.forEach((input) => {
+                input.setAttribute("placeholder", "metro cúbico");
+            });
+            createOptions("volume_data");
+            break;
+        case "temperature":
+            selectsNone.forEach((key) => {key.setAttribute("name", "temperature_data")});
+            inputs.forEach((input) => {
+                input.setAttribute("placeholder", "celsius");
+            });
+            createOptions("temperature_data");
+            break;
+        case "weight":
+            selectsNone.forEach((key) => {key.setAttribute("name", "weight_data")});
+            inputs.forEach((input) => {
+                input.setAttribute("placeholder", "quilograma");
+            });
+            createOptions("weight_data");
+            break;
+        case "time":
+            selectsNone.forEach((key) => {key.setAttribute("name", "time_data")});
+            inputs.forEach((input) => {
+                input.setAttribute("placeholder", "segundo");
+            });
+            createOptions("time_data");
+            break;
+        case "pressure":
+            selectsNone.forEach((key) => {key.setAttribute("name", "pressure_data")});
+            inputs.forEach((input) => {
+                input.setAttribute("placeholder", "pascal");
+            });
+            createOptions("pressure_data");
+            break;
+        case "speed":
+            selectsNone.forEach((key) => {key.setAttribute("name", "speed_data")});
+            inputs.forEach((input) => {
+                input.setAttribute("placeholder", "metros por segundo");
+            });
+            createOptions("speed_data");
+            break;
+        case "acceleration":
+            selectsNone.forEach((key) => {key.setAttribute("name", "acceleration_data")});
+            inputs.forEach((input) => {
+                input.setAttribute("placeholder", "metros por segundo ao quadrado");
+            });
+            createOptions("acceleration_data");
+            break;
     }
-
 }
 
 
