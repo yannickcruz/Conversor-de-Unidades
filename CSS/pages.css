@@ -115,9 +115,11 @@ html, body{
 body{
     display: flex;
     flex-direction: column;
+    width: 100vw;
 }
 footer{
     display: flex;
+    width: 100%;
     align-items: center;
     justify-content: center;
     height: 10rem;
@@ -145,7 +147,6 @@ footer{
     .linkText {
         border-radius: 0;
         border: 2px solid #10066bff;
-        background-color: #d4d4d4;
     }
 
     #logo {
@@ -202,5 +203,8 @@ footer{
     }
     #dark{
         width: 10vw;
+    }
+    #copy{
+        font-size: 3vw;
     }
 }

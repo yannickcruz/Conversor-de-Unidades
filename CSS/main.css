@@ -127,6 +127,9 @@ footer{
     #subcontainer{
         gap: 1rem;
     }
+    #copy{
+        font-size: 3vw;
+    }
 }
 
 

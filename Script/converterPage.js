@@ -164,7 +164,7 @@ function create_select(quantity) {
 document.addEventListener('DOMContentLoaded', () => {
     const fromInput = document.getElementById("fromInput");
     const toInput = document.getElementById("toInput");
-    darkMode(false);
+    darkMode(isDark);
     // input select
     const i_select = document.getElementById("input-select");
     // output select
