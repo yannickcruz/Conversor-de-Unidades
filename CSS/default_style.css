@@ -35,6 +35,8 @@ body{
     --white: #ffffff;
     --background: #fff8f3;
     --dark : #161616;
+    --td-width: 20rem;
+    --td-padding-left: 0.5rem;
 }
 
 /*Estilo da barra do header*/

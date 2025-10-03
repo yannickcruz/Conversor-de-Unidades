@@ -65,11 +65,6 @@
 
 
 /*Form Styles*/
-:root {
-    --td-width: 20rem;
-    --td-padding-left: 0.5rem;
-}
-
 #formBody {
     display: flex;
     flex-direction: column;
@@ -111,7 +106,7 @@
 
 body{
     display: grid;
-    grid-template-rows: auto 1fr auto;
+    grid-template-rows: 5rem 1fr auto;
     min-height: 100vh;
     margin: 0;
 }
@@ -205,5 +200,45 @@ footer{
     }
     #copy{
         font-size: 3vw;
+    }
+}
+
+@media(max-height: 600px) and (min-height: 768px){
+    header{
+        height: 3rem;
+    }
+    body{
+        min-height: 0;
+    }
+    footer{
+        top: 12rem;
+    }
+    #dark{
+        width: 2rem;
+    }
+    #unitBar{
+        top: 4rem;
+    }
+    #converter{
+        top: 5rem;
+    }
+}
+
+@media(max-height: 600px) and (max-width: 768px){
+    header{
+        height: 3rem;
+    }
+    #copy{
+        font-size: 0.75rem;
+    }
+    footer{
+        height: 5rem;
+        top: 10rem;
+    }
+    #converter{
+        top: 12rem;
+    }
+    #dark{
+        width: 2.5rem;
     }
 }

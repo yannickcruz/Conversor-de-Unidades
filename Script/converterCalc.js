@@ -45,4 +45,4 @@ export function conversionCalc(input, output, value, type) {
     return outputValue;
 }
 
-//console.log(conversionCalc("k", "f", 2, "temperature_data"));
+//console.log(conversionCalc("yr", "day", 2, "time_data"));

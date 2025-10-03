@@ -69,7 +69,7 @@
     { "value": "day", "text": "dia" },
     { "value": "week", "text": "semana" },
     { "value": "mo", "text": "mês" },
-    { "value": "yr ", "text": "ano" }
+    { "value": "yr", "text": "ano" }
   ],
   "pressure_data": [
     { "value": "Pa", "text": "pascal" },
