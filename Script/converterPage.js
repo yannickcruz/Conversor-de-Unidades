@@ -149,6 +149,13 @@ function create_select(quantity) {
         });
         const typeUnit = input_select.getAttribute("name");
         createOptions(typeUnit);
+    } else if(quantity === 'acceleration'){
+        selectsNone.forEach((key) => {key.setAttribute("name", "acceleration_data")});
+        inputs.forEach((input) => {
+            input.setAttribute("placeholder", "metros por segundo ao quadrado");
+        });
+        const typeUnit = input_select.getAttribute("name");
+        createOptions(typeUnit);
     }
 
 }
@@ -203,7 +210,6 @@ function localStorageSetting(action){
     if(action == "load"){
         isDark = localStorage.getItem("isDark");
         isDark === "false" ? isDark = false : isDark = true;
-        //isDark = Boolean(isDark);
     }
 }
 
@@ -220,6 +226,7 @@ function darkMode(click){
     const header = document.getElementById("navbar");
     const body = document.body;
     const footer = document.getElementById("page-foot");
+    const copyText = document.getElementById("copy");
 
     if(!clickIsDark){
         btn.style.rotate = "180deg";
@@ -233,6 +240,7 @@ function darkMode(click){
         header.style.backgroundColor = "rgba(22, 22, 22, 0.75)";
         header.style.boxShadow = "none";
         header.style.borderBottom = "1px #ffffff solid";
+        copyText.style.color = "#ffffff";
         for(const sheet of styleSheet){
             for(const prop of sheet.cssRules){
                 if(prop.selectorText === "#selected"){
@@ -246,6 +254,9 @@ function darkMode(click){
                 if(prop.selectorText === ".std-text"){
                     prop.style["color"] = "#ffffff";
                 }
+                if(prop.selectorText === ".linkText:hover"){
+                    prop.style.backgroundColor = "#00039bff";
+                }
             }
         }
         inputs.forEach((key) => {
@@ -257,8 +268,7 @@ function darkMode(click){
             key.style.backgroundColor = "#161515";
             key.style.color = "#ffffff";
         })
-        
-        //footer.style.backgroundColor = "#06003fff";
+        footer.style.backgroundColor = "#06003fff";
 
     } else if(clickIsDark){
         btn.style.rotate = "0deg";
@@ -272,7 +282,8 @@ function darkMode(click){
         header.style.backgroundColor = "rgba(255, 248, 243, 0.75)";
         header.style.boxShadow = "0px 0px 10px 2px";
         header.style.borderBottom = "none";
-        //footer.style.backgroundColor = "#2fb6ff";
+        footer.style.backgroundColor = "#2fb6ff";
+        copyText.style.color = "#333232";
 
         for(const sheet of styleSheet){
             for(const prop of sheet.cssRules){
@@ -286,6 +297,9 @@ function darkMode(click){
                 }
                 if(prop.selectorText === ".std-text"){
                     prop.style["color"] = "#161515";
+                }
+                if(prop.selectorText === ".linkText:hover"){
+                    prop.style.backgroundColor = "#e6e6e6";
                 }
             }
         }

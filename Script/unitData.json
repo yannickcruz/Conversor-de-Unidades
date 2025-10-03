@@ -101,5 +101,25 @@
     { "value": "knot", "text": "nós (nautical mile per hour)" },
     { "value": "c", "text": "velocidade da luz no vácuo" },
     { "value": "mach", "text": "mach (velocidade do som)" }
+  ],
+  "acceleration_data": [
+    { "value": "m/s2", "text": "Metro por segundo ao quadrado" },
+    { "value": "km/s2", "text": "Quilômetro por segundo ao quadrado" },
+    { "value": "hm/s2", "text": "Hectômetro por segundo ao quadrado" },
+    { "value": "dam/s2", "text": "Decâmetro por segundo ao quadrado" },
+    { "value": "dm/s2", "text": "Decímetro por segundo ao quadrado" },
+    { "value": "cm/s2", "text": "Centímetro por segundo ao quadrado" },
+    { "value": "mm/s2", "text": "Milímetro por segundo ao quadrado" },
+    { "value": "µm/s2", "text": "Micrômetro por segundo ao quadrado" },
+    { "value": "nm/s2", "text": "Nanômetro por segundo ao quadrado" },
+    { "value": "pm/s2", "text": "Picômetro por segundo ao quadrado" },
+    { "value": "fm/s2", "text": "Femtômetro por segundo ao quadrado" },
+    { "value": "am/s2", "text": "Attômetro por segundo ao quadrado" },
+    { "value": "g", "text": "Aceleração da gravidade" },
+    { "value": "Gal", "text": "Galileo" },
+    { "value": "mi/s2", "text": "Milha por segundo ao quadrado" },
+    { "value": "yd/s2", "text": "Jarda por segundo ao quadrado" },
+    { "value": "ft/s2", "text": "Pé por segundo ao quadrado" },
+    { "value": "in/s2", "text": "Polegada por segundo ao quadrado" }
   ]
 }
